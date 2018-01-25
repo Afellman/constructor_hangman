@@ -10,7 +10,7 @@ function Word (wordArray) {
     arr.forEach(element => {
       displayArray.push(element.display);
     });
-    return displayArray.join(",");
+    return displayArray.join("");
   }
 }
 

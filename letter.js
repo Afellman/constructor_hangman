@@ -5,11 +5,13 @@ function Letter(letter) {
   this.display = "_";
   this.letterCheck = function(guess) {
     if (guess == this.letter) {
-      console.log("yes it works")
+      console.log("Correct!")
       this.display = this.letter;
+
     }
   }
 }
+
 
 module.exports = {
   Letter
