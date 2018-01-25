@@ -15,30 +15,22 @@ var chances = 10;
 word.chooseWord()
 console.log(word.word)
 
-
-
-// Creating letter objects for each letter in the word.
+// Creating letter objects for each letter in the word and pushing 
+// them to an array.
 for (var i = 0; i < word.word.length; i ++) {
   var x = new letterModule.Letter(word.word[i]);
   letterObjArray.push(x);
 }
-// displaying the underscore or letter for each letter obj
-function display() {
-  var displayArray = [];
-  letterObjArray.forEach(element => {
-    displayArray.push(element.display);
-  });
-  console.log(displayArray)
-}
 
-display()
+// console.log(word.displayFunc(letterObjArray))
 
 
 inquirerPrompt(word.word)
 
 function inquirerPrompt(word){
+  console.log(word.displayFunc(letterObjArray))
   if (chances > 0) {
-  console.log(chances)
+  console.log(chances + " chances")
     inquirer.prompt([
       {
         message: "Guess a letter",
@@ -46,15 +38,17 @@ function inquirerPrompt(word){
       }
     ])
     .then(function(guess) {
-      console.log(guess.letter)
+
+      if (word.indexOf(guess.letter) == -1){
+        console.log(guess) 
+        chances--};
       letterObjArray.forEach(element => {
         element.letterCheck(guess.letter)
-        console.log(element)
       });
-      display()
+      
+      
       inquirerPrompt(word)
     });
-    chances --;
   } else {
     console.log("game over")
   }
