@@ -1,4 +1,5 @@
 // Requires
+const request = require('request');
 const inquirer = require("inquirer");
 const wordModule = require('./word.js');
 const letterModule = require('./letter.js');
@@ -11,6 +12,10 @@ var word = new wordModule.Word(wordArray)
 // Chances
 var chances = 10;
 
+// request('https://gist.githubusercontent.com/ixfan/0d0634a7b7314ea49355/raw/09979c526e1b8cbfd56fe020005db6214fa576a8/ascii_art_buddha', function(err, response, body) {
+//   console.log(body)
+// });
+
 // Choosing word
 word.chooseWord()
 console.log(word.word)
@@ -22,10 +27,10 @@ for (var i = 0; i < word.word.length; i ++) {
   letterObjArray.push(x);
 }
 
-// console.log(word.displayFunc(letterObjArray))
+// 
 
 
-inquirerPrompt(word.word)
+inquirerPrompt(word)
 
 function inquirerPrompt(word){
   console.log(word.displayFunc(letterObjArray))
@@ -39,7 +44,7 @@ function inquirerPrompt(word){
     ])
     .then(function(guess) {
 
-      if (word.indexOf(guess.letter) == -1){
+      if (word.word.indexOf(guess.letter) == -1){
         console.log(guess) 
         chances--};
       letterObjArray.forEach(element => {

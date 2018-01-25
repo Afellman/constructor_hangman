@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^5.0.1"
+    "ascii-art": "^1.4.2",
+    "inquirer": "^5.0.1",
+    "request": "^2.83.0"
   }
 }
