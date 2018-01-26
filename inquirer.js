@@ -6,13 +6,14 @@ const inquirer = require('inquirer')
 const request = require('request');
 
 // Creating instances of necessary objects.
+// gameObj holds all the need logic.
 const gameObj = new gameJS.GameLogic();
+// wordObj choses and hold the word.
 const wordObj = new wordJS.Word();
 
 // Choosing word from word array.
 wordObj.chooseWord(gameObj.wordArray);
 let word = wordObj.word;
-
 
 // Generating underscores from word.
 gameObj.underscoreGen(word);
@@ -30,6 +31,7 @@ function inquirerPrompt () {
   console.log("\nGuess This Word")
   console.log("\n" +underscores.join(" "));
   console.log("\n")
+
   inquirer.prompt([
     {
       message: "Pick a letter",
@@ -37,9 +39,12 @@ function inquirerPrompt () {
     }
   ])
   .then(function(answer) {
+    // Creating new instance of a letter object from the users guess
     let letterObj = new letterJS.Letter(answer.letter);
+    // Calling functions to check the letter and check if the game is over.
     gameObj.checkGuess(letterObj.letter, word)
     gameObj.checkWinLose(word);
+    // Recalling the prompt function. 
     inquirerPrompt();
   });
   
