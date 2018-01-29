@@ -16,3 +16,7 @@ From within the terminal/bash navigate to the repo directory and type:
 may be in the empty lines provided. These questions will continue until you 
 guess all the letters correctly or you run out of chances, whichever comes first.
 To play again simple reload the app.
+
+Enjoy!
+
+-Come Find me @ [Andrew Fellman](http://www.andrewefellman.com)
