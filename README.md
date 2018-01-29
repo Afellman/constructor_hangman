@@ -11,7 +11,7 @@ by typing: `npm install`.
 
 ## How to Play
 
-From within the terminal/bash naviagte to the repo directory and type:
+From within the terminal/bash navigate to the repo directory and type:
 `node inquirer.js`. You will then be prompted to guess a letter that you think
 may be in the empty lines provided. These questions will continue until you 
 guess all the letters correctly or you run out of chances, whichever comes first.
